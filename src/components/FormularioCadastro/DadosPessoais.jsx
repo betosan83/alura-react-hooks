@@ -8,7 +8,7 @@ function DadosPessoais({ aoEnviar, validacoes }) {
   const [cpf, setCpf] = useState("");
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(false);
-  const [erros, setErros] = useState({ cpf: { valido: true, texto: "" } })
+  const [erros, setErros] = useState({ cpf: { valido: true, texto: "" }, nome: { valido: true, texto: "" } })
 
   function validarCampos(event) {
     const { name, value } = event.target
@@ -39,6 +39,9 @@ function DadosPessoais({ aoEnviar, validacoes }) {
         onChange={(event) => {
           setNome(event.target.value);
         }}
+        onBlur={validarCampos}
+        error={!erros.nome.valido}
+        helperText={erros.nome.texto}
         id="nome"
         label="Nome"
         name="nome"
