@@ -8,7 +8,8 @@ function DadosUsuario({ aoEnviar }) {
         <form onSubmit={(event) => {
             event.preventDefault();
             aoEnviar({email, senha});
-        }}>
+        }}
+        >
             <TextField id="email"
                 value={email}
                 onChange={(event) => { setEmail(event.target.value) }}
