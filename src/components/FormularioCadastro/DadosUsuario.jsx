@@ -13,10 +13,20 @@ function DadosUsuario({ aoEnviar, validacoes }) {
         setErros(novoEstado);
 
     }
+    function possoEnviar() {
+        for(let campo in erros) {
+            if(!erros[campo].valido) {
+                return false
+            }
+        }
+        return true;
+    }
     return (
         <form onSubmit={(event) => {
             event.preventDefault();
-            aoEnviar({ email, senha });
+            if(possoEnviar()) {
+                aoEnviar({ email, senha });
+            }
         }}
         >
             <TextField id="email"
@@ -41,7 +51,7 @@ function DadosUsuario({ aoEnviar, validacoes }) {
                 margin="normal"
                 required
                 fullWidth />
-            <Button type="submit" variant="contained" color="primary">Cadastrar</Button>
+            <Button type="submit" variant="contained" color="primary">Próximo</Button>
         </form>
     );
 }
