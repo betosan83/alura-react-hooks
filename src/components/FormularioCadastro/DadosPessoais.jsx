@@ -31,6 +31,7 @@ function DadosPessoais({aoEnviar, validacoes}) {
         }}
         id="nome"
         label="Nome"
+        name="nome"
         variant="outlined"
         margin="normal"
         fullWidth
@@ -41,6 +42,7 @@ function DadosPessoais({aoEnviar, validacoes}) {
           setSobrenome(event.target.value);
         }}
         id="sobrenome"
+        name="sobrenome"
         label="Sobrenome"
         variant="outlined"
         margin="normal"
